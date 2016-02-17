@@ -20,6 +20,7 @@ mapa.autoResize = true;
 */
 for(var property in mapa) {    
     if (mapa.hasOwnProperty(property)) {
-        alert('mapa<' + property + '> = ' + mapa[property]);
+        alert('Mapa/PropertyName/' + property + ': ' + mapa[property]);
+        console.log('Mapa/PropertyName/' + property + ': ' + mapa[property]);
     }
 }
