@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Ejemplo 1: Cómo pintar un mapa con el API JS de ArcGIS</title>
+  <meta name="description" content="Este es un ejemplo de HolaMundo usando la API" />
+
+  <link rel="stylesheet" href="http://js.arcgis.com/3.15/esri/css/esri.css">
+  <link rel="stylesheet" href="../../codigo/css/reset.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Cargamos la API a través del CDN de ArcGIS -->
+  <script>
+    'use strict';
+    var dojoConfig = (function () {
+        return {
+            async: true,
+            isDebug: true,
+            parseOnLoad: false,
+            packages: [
+                {
+                    name: 'jquery',
+                    location: 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1',
+                    main: 'jquery'
+                }
+            ]
+        };
+    })();
+  </script>
+  <script src="http://js.arcgis.com/3.15/"></script>
+  <script>
+    'use strict';
+
+    var map;
+
+    require([
+      'esri/map',
+      'esri/layers/FeatureLayer',
+      'jquery',
+      'dojo/domReady!'
+    ], function(Map, featureLayer, $) {
+      map = new Map('mapDiv', {
+        center: [-3.674, 40.439],
+        zoom: 7,
+        basemap: 'streets'
+      });
+
+      $.getScript('index.js');
+      
+    });
+  </script>
+</head>
+<body class="claro">
+  <div id="header">
+    <h1 class="bold">Mapa de metro</h1>
+    <nav>
+      <ul id="features">
+      </ul>
+    </nav>
+  </div>
+
+  <div id="mapDiv"></div>
+  <div id="help" class="hidden">
+    <p>
+      Este mapa muestra las estaciones y la líneas de metro de Madrid | Creado por: <span id="authors"></span>
+    </p>
+  </div>
+  
+</body>
+</html>
